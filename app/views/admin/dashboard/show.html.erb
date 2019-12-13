@@ -1,16 +1,25 @@
-<h1>Dashboard</h1>
-<p>Total Products: <%= @products.count %></p>
-<ul>
-  <% @products.each do |product| %>
-    <li>
-      <%= link_to product.name, product %>
-    </li>
-  <% end %>
-</ul>
+<section class="admin-dashboard-show">
 
-<p>Total Category: <%= Category.all.count.inspect %></p>
-<ul>
-  <% Category.all.each do |category| %>
-    <li><%= link_to category.name, category %></li>
-  <% end %>
-</ul>
+  <header class="page-header">
+    <h1>Admin &raquo; Dashboard</h1>
+  </header>
+
+  <div class="panel panel-default dashboard">
+    <table class="table table-bordered">
+      <thead>
+        <th></th>
+        <th>Total Number</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= link_to 'Product', [:admin, :products] %></td>
+          <td><%= @products.count %></td>
+        <tr>
+        <tr>
+          <td><%= link_to 'Categories', [:admin, :categories] %></td>
+          <td><%= Category.all.count.inspect %></td>
+        <tr>
+      </tbody>
+    </table>
+  </div>
+</section>
